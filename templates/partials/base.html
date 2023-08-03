@@ -3,40 +3,47 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-  <title>Dashboard </title>
- 
+  <title>Dashboard</title>
+
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
+  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon" />
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/quill/quill.snow.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/quill/quill.bubble.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/simple-datatables/style.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/quill/quill.snow.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet" />
+  <link href="{% static 'assets/vendor/simple-datatables/style.css'%}" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
-
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet" />
+  <!-- pwa -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="/static/assets/js/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/assets/img/logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/static/assets/img/apple-touch-icon.png">
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("{{ SERVICE_WORKER_URL }}");
+      });
+    }
+  </script>
 </head>
+
 <body>
-  
-  {% include 'partials/header.html' %}
-  {% include 'partials/sidebar.html' %}
-  
-  {% block content %}
-  
-  {% endblock %}
+  {% include 'partials/header.html' %} {% include 'partials/sidebar.html' %}
+  {% block content %} {% endblock %}
 
- 
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
@@ -50,7 +57,6 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-
 </body>
 
 </html>
